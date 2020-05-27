@@ -1,0 +1,79 @@
+﻿<Page x:Class="MaterialTheme.Main"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MaterialTheme"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Main">
+
+  <Grid>
+    <TextBlock
+        Style="{StaticResource MaterialDesignHeadline3TextBlock}" HorizontalAlignment="Center">
+        Admin Dashboard
+    </TextBlock>
+    <Grid Background="#fff" Margin="45,83,57,161.6">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <TextBlock
+        Style="{StaticResource MaterialDesignHeadline4TextBlock}" HorizontalAlignment="Center" Margin="224,0,9.8,-1" Foreground="DarkRed">
+        Reports
+      </TextBlock>
+      <StackPanel Grid.Column="0">
+        <TextBlock Text="Total Students Enrolled: " FontSize="16" Margin="15,70,-0.2,0"/>
+        <TextBlock Text="Total Trainers: " FontSize="16" Margin="15,0,-0.2,0"/>
+        <TextBlock Text="Total Courses: " FontSize="16" Margin="15,0,-0.2,0"/>
+      </StackPanel>
+      <StackPanel Grid.Column="1">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+          </Grid.ColumnDefinitions>
+          <StackPanel Grid.Column="0">
+            <TextBlock Text="Unassigned Course" FontSize="16" Margin="0,70,-0.2,0"/>
+            <ComboBox Margin="0 0 20 0"
+              materialDesign:HintAssist.Hint="Unassigned Courses">
+              <ComboBoxItem>
+                Android
+              </ComboBoxItem>
+              <ComboBoxItem>
+                iOS
+              </ComboBoxItem>
+              <ComboBoxItem>
+                Linux
+              </ComboBoxItem>
+              <ComboBoxItem>
+                Windows
+              </ComboBoxItem>
+            </ComboBox>
+          </StackPanel>
+          <StackPanel Grid.Column="1">
+            <TextBlock Text="Students taking no course" FontSize="16" Margin="20,70,-0.2,0"/>
+            <ComboBox Margin="20 0 0 0"
+              materialDesign:HintAssist.Hint="Students">
+              <ComboBoxItem>
+                Android
+              </ComboBoxItem>
+              <ComboBoxItem>
+                iOS
+              </ComboBoxItem>
+              <ComboBoxItem>
+                Linux
+              </ComboBoxItem>
+              <ComboBoxItem>
+                Windows
+              </ComboBoxItem>
+            </ComboBox>
+          </StackPanel>
+        </Grid>
+
+      </StackPanel>
+    </Grid>
+    <DataGrid HorizontalAlignment="Left" Height="147" Margin="45,293,0,0" VerticalAlignment="Top" Width="698"/>
+  </Grid>
+</Page>
