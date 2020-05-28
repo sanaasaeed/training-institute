@@ -24,7 +24,7 @@
         Reports
       </TextBlock>
       <StackPanel Grid.Column="0">
-        <TextBlock Text="Total Students Enrolled: " FontSize="16" Margin="15,70,-0.2,0"/>
+        <TextBlock x:Name="TotalStudentsText" Text="Total Students Enrolled: " FontSize="16" Margin="15,70,-0.2,0"/>
         <TextBlock Text="Total Trainers: " FontSize="16" Margin="15,0,-0.2,0"/>
         <TextBlock Text="Total Courses: " FontSize="16" Margin="15,0,-0.2,0"/>
       </StackPanel>

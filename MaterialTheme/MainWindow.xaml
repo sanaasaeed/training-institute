@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:MaterialTheme"
         mc:Ignorable="d"
         Title="MainWindow" Height="749.1" Width="1274.6"  xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:materialMenu="clr-namespace:MaterialMenu;assembly=MaterialMenu"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"

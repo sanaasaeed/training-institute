@@ -37,9 +37,11 @@ namespace MaterialTheme {
       };
       MenuItemBox.ItemsSource = menus;
 
+      var context = new TrainingDBContext();
     }
 
-    
+
+
 
     private void OnSelectionChangeMenuBox(object sender, SelectionChangedEventArgs e) {
       var name = ((MenuBox) MenuItemBox.SelectedItem).Name;
