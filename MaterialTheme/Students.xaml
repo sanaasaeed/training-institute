@@ -10,6 +10,7 @@
       Title="Students">
 
   <Grid>
+
     <TabControl Margin="28,10,0,318.6" HorizontalAlignment="Left" Width="393">
       <TabItem Header="Add Student">
         <Grid>
@@ -18,27 +19,27 @@
             <ColumnDefinition Width="*"/>
           </Grid.ColumnDefinitions>
           <StackPanel Grid.Column="0">
-            <TextBox Margin="20 0 50 0"
+            <TextBox x:Name="FirstNameTextBox" Margin="20 0 50 0"
               materialDesign:HintAssist.Hint="First Name"
               Style="{StaticResource MaterialDesignFloatingHintTextBox}"
               VerticalAlignment="Center" />
-            <TextBox Margin="20 0 50 0"
-              materialDesign:HintAssist.Hint="Last Name"
-              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-              VerticalAlignment="Center" />
-            <TextBox Margin="20 0 50 0"
+            <TextBox x:Name="LastNameTextBox" Margin="20 0 50 0"
+                     materialDesign:HintAssist.Hint="Last Name"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center" />
+            <TextBox x:Name="RegTextBox" Margin="20 0 50 0"
                      materialDesign:HintAssist.Hint="Registration Number"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      VerticalAlignment="Center" />
-            <TextBox Margin="20 0 50 0"
+            <TextBox x:Name="PhoneNumberTextBox" Margin="20 0 50 0"
                      materialDesign:HintAssist.Hint="Phone Number"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      VerticalAlignment="Center" />
-            <TextBox Margin="20 0 50 0"
+            <TextBox x:Name="EmailTextBox" Margin="20 0 50 0"
                      materialDesign:HintAssist.Hint="Email"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      VerticalAlignment="Center" />
-            <TextBox Margin="20 0 50 0"
+            <TextBox x:Name="AddressTextBox" Margin="20 0 50 0"
                      materialDesign:HintAssist.Hint="Address"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      VerticalAlignment="Center" />
@@ -47,17 +48,17 @@
             <Canvas Height="100" Width="100" Background="#444">
               <Image x:Name="Photo" Height="100" Width="100" Stretch="Fill"/>
             </Canvas>
-            <Button
+            <Button x:Name="AddBtn"
               Style="{StaticResource MaterialDesignRaisedAccentButton}"
               Width="100"
               ToolTip="Resource name: MaterialDesignRaisedAccentButton" Content="Browse" Click="BrowseBtnClicked "/>
-            <DatePicker Margin="0 30 0 0"
+            <DatePicker x:Name="DateOfBirthPicker" Margin="0 30 0 0"
               Width="140"
-              materialDesign:HintAssist.Hint="Pick Date"
+              materialDesign:HintAssist.Hint="Birth Date"
               Style="{StaticResource MaterialDesignFilledDatePicker}" />
             <Button Margin="0 20 0 0"
               Style="{StaticResource MaterialDesignRaisedAccentButton}"
-              Width="100"
+              Width="100" Click="BtnAdd_OnClick"
               ToolTip="Resource name: MaterialDesignRaisedAccentButton">
               Add
             </Button>
@@ -67,36 +68,11 @@
       </TabItem>
       <TabItem Header="Assign Course">
         <StackPanel>
-          <ComboBox Margin="10 40 40 0"
+          <ComboBox x:Name="AssignStdCombo" Margin="10 40 40 0"
             materialDesign:HintAssist.Hint="Select Student">
-            <ComboBoxItem>
-              Android
-            </ComboBoxItem>
-            <ComboBoxItem>
-              iOS
-            </ComboBoxItem>
-            <ComboBoxItem>
-              Linux
-            </ComboBoxItem>
-            <ComboBoxItem>
-              Windows
-            </ComboBoxItem>
           </ComboBox>
 
-          <ComboBox Margin="10 40 40 0"
-                    materialDesign:HintAssist.Hint="Select Course">
-            <ComboBoxItem>
-              Android
-            </ComboBoxItem>
-            <ComboBoxItem>
-              iOS
-            </ComboBoxItem>
-            <ComboBoxItem>
-              Linux
-            </ComboBoxItem>
-            <ComboBoxItem>
-              Windows
-            </ComboBoxItem>
+          <ComboBox Margin="10 40 40 0" x:Name="AssignCourseCombo" materialDesign:HintAssist.Hint="Select Course">
           </ComboBox>
           <Button Margin="0 80 0 0"
             Style="{StaticResource MaterialDesignRaisedAccentButton}"
@@ -111,20 +87,7 @@
     <TabControl Margin="550,10,0,318.6" HorizontalAlignment="Left" Width="393">
       <TabItem Header="Delete Student">
         <StackPanel>
-          <ComboBox Margin="10 40 40 0"
-                    materialDesign:HintAssist.Hint="Select a record to delete">
-            <ComboBoxItem>
-              Android
-            </ComboBoxItem>
-            <ComboBoxItem>
-              iOS
-            </ComboBoxItem>
-            <ComboBoxItem>
-              Linux
-            </ComboBoxItem>
-            <ComboBoxItem>
-              Windows
-            </ComboBoxItem>
+          <ComboBox Margin="10 40 40 0" x:Name="DeleteStdCombo" materialDesign:HintAssist.Hint="Select a record to delete">
           </ComboBox>
           <Button Margin="0 80 0 0"
                   Style="{StaticResource MaterialDesignRaisedAccentButton}"
@@ -180,21 +143,22 @@
               Width="140"
               materialDesign:HintAssist.Hint="Pick Date"
               Style="{StaticResource MaterialDesignFilledDatePicker}" />
-            <Button Margin="0 20 0 0"
-              Style="{StaticResource MaterialDesignRaisedAccentButton}"
-              Width="100"
-              ToolTip="Resource name: MaterialDesignRaisedAccentButton">
-              Update
-            </Button>
+
           </StackPanel>
         </Grid>
 
       </TabItem>
 
-      
-
-
     </TabControl>
-    <DataGrid x:Name="ListStudents" HorizontalAlignment="Left" Height="270" Margin="28,341,0,-161.4" VerticalAlignment="Top" Width="762" RenderTransformOrigin="-0.366,-0.368"/>
+    <DataGrid x:Name="ListStudents" HorizontalAlignment="Left" Height="193" Margin="0,418,-221,-161.4" VerticalAlignment="Top" Width="1021" RenderTransformOrigin="-0.366,-0.368" CanUserAddRows="False" materialDesign:DataGridAssist.CellPadding="1 1 1 1" materialDesign:DataGridAssist.ColumnHeaderPadding="1 1 1 1"  >
+      <!-- <Button -->
+      <!--       Style="{StaticResource MaterialDesignRaisedAccentButton}" -->
+      <!--       Width="100" -->
+      <!--       ToolTip="Resource name: MaterialDesignRaisedAccentButton" Content="Update"/> -->
+    </DataGrid>
+    <Button Margin="636,265,64,160.6"
+            Style="{StaticResource MaterialDesignRaisedAccentButton}"
+            Width="100"
+            ToolTip="Resource name: MaterialDesignRaisedAccentButton" Content="Refresh" Click="Refresh" Height="30"/>
   </Grid>
 </Page>

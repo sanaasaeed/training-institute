@@ -24,9 +24,12 @@
         Reports
       </TextBlock>
       <StackPanel Grid.Column="0">
-        <TextBlock x:Name="TotalStudentsText" Text="Total Students Enrolled: " FontSize="16" Margin="15,70,-0.2,0"/>
-        <TextBlock Text="Total Trainers: " FontSize="16" Margin="15,0,-0.2,0"/>
-        <TextBlock Text="Total Courses: " FontSize="16" Margin="15,0,-0.2,0"/>
+        <TextBlock x:Name="TotalStudentsText" Text="{Binding noOfStudents, 
+                  StringFormat='Total No of Students: {0}'}" FontSize="16" Margin="15,70,-0.2,0"/>
+        <TextBlock Text ="{Binding noOfTrainers, 
+                  StringFormat='Total No of Trainers: {0}'}" FontSize="16" Margin="15,0,-0.2,0"/>
+        <TextBlock Text="{Binding noOfCourses, 
+                  StringFormat='Total No of Courses: {0}'}" FontSize="16" Margin="15,0,-0.2,0"/>
       </StackPanel>
       <StackPanel Grid.Column="1">
         <Grid>
@@ -36,44 +39,20 @@
           </Grid.ColumnDefinitions>
           <StackPanel Grid.Column="0">
             <TextBlock Text="Unassigned Course" FontSize="16" Margin="0,70,-0.2,0"/>
-            <ComboBox Margin="0 0 20 0"
+            <ComboBox x:Name="UnassignedCourse" Margin="0 0 20 0" SelectionChanged="OnUnassignedSelectionChange"
               materialDesign:HintAssist.Hint="Unassigned Courses">
-              <ComboBoxItem>
-                Android
-              </ComboBoxItem>
-              <ComboBoxItem>
-                iOS
-              </ComboBoxItem>
-              <ComboBoxItem>
-                Linux
-              </ComboBoxItem>
-              <ComboBoxItem>
-                Windows
-              </ComboBoxItem>
             </ComboBox>
           </StackPanel>
           <StackPanel Grid.Column="1">
             <TextBlock Text="Students taking no course" FontSize="16" Margin="20,70,-0.2,0"/>
-            <ComboBox Margin="20 0 0 0"
+            <ComboBox Margin="20 0 0 0" x:Name="StudentCombo" SelectionChanged="StudentCombo_OnSelectionChanged"
               materialDesign:HintAssist.Hint="Students">
-              <ComboBoxItem>
-                Android
-              </ComboBoxItem>
-              <ComboBoxItem>
-                iOS
-              </ComboBoxItem>
-              <ComboBoxItem>
-                Linux
-              </ComboBoxItem>
-              <ComboBoxItem>
-                Windows
-              </ComboBoxItem>
             </ComboBox>
           </StackPanel>
         </Grid>
 
       </StackPanel>
     </Grid>
-    <DataGrid HorizontalAlignment="Left" Height="147" Margin="45,293,0,0" VerticalAlignment="Top" Width="698"/>
+    <DataGrid x:Name="DataGridMain" HorizontalAlignment="Left" Height="281" Margin="45,293,-338,-124.4" VerticalAlignment="Top" Width="1093"/>
   </Grid>
 </Page>

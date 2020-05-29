@@ -196,10 +196,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="TrainingDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="TrainingDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>TrainingDB.mdf</DependentUpon>
     </Content>
     <Content Include="TrainingInsitiuteModels.Context.tt">
