@@ -13,19 +13,19 @@
     <TabControl Margin="10,10,0,199.6" HorizontalAlignment="Left" Width="433">
       <TabItem Header="Add Course">
         <StackPanel>
-          <TextBox Margin="20 20 50 0"
+          <TextBox x:Name="CodeTextBox" Margin="20 20 50 0"
                    materialDesign:HintAssist.Hint="Course Code"
                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                    VerticalAlignment="Center" />
-          <TextBox Margin="20 0 50 0"
+          <TextBox x:Name="TitleTextBox" Margin="20 0 50 0"
                    materialDesign:HintAssist.Hint="Title"
                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                    VerticalAlignment="Center" />
-          <TextBox Margin="20 0 50 0"
+          <TextBox x:Name="DescriptionTextBox" Margin="20 0 50 0"
                    materialDesign:HintAssist.Hint="Description"
                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                    VerticalAlignment="Center" />
-          <Button Margin="0 80 0 0"
+          <Button Click="AddBtnCourse" Margin="0 80 0 0"
                   Style="{StaticResource MaterialDesignRaisedAccentButton}"
                   Width="100"
                   ToolTip="Resource name: MaterialDesignRaisedAccentButton">
@@ -38,21 +38,8 @@
       <TabItem Header="Delete Course">
         <StackPanel>
           <ComboBox Margin="10 40 40 0"
-                    materialDesign:HintAssist.Hint="Select a record to delete">
-            <ComboBoxItem>
-              Android
-            </ComboBoxItem>
-            <ComboBoxItem>
-              iOS
-            </ComboBoxItem>
-            <ComboBoxItem>
-              Linux
-            </ComboBoxItem>
-            <ComboBoxItem>
-              Windows
-            </ComboBoxItem>
-          </ComboBox>
-          <Button Margin="0 80 0 0"
+                  x:Name="DeleteCourseCombo"  materialDesign:HintAssist.Hint="Select a record to delete"/>
+          <Button Click="DeleteBtnCLick" Margin="0 80 0 0"
                   Style="{StaticResource MaterialDesignRaisedAccentButton}"
                   Width="100"
                   ToolTip="Resource name: MaterialDesignRaisedAccentButton">
@@ -64,30 +51,53 @@
       </TabItem>
       <TabItem Header="Update Course" Height="23" Margin="-2,-2,-1.8,-0.2" VerticalAlignment="Bottom">
         <StackPanel>
-            <TextBox Margin="20 0 50 0"
+          <TextBox x:Name="UpCode" Margin="20 0 50 0" IsReadOnly="True"
               materialDesign:HintAssist.Hint="Course Code"
               Style="{StaticResource MaterialDesignFloatingHintTextBox}"
               VerticalAlignment="Center" />
-            <TextBox Margin="20 0 50 0"
+          <TextBox x:Name="UpTitle" Margin="20 0 50 0"
               materialDesign:HintAssist.Hint="Title"
               Style="{StaticResource MaterialDesignFloatingHintTextBox}"
               VerticalAlignment="Center" />
-            <TextBox Margin="20 0 50 0"
+          <TextBox x:Name="UpDescription" Margin="20 0 50 0"
                      materialDesign:HintAssist.Hint="Description"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      VerticalAlignment="Center" />
-      
-            <Button Margin="0 20 0 0"
+
+          <Button Margin="0 20 0 0" Click="UpdateOnClick"
                     Style="{StaticResource MaterialDesignRaisedAccentButton}"
                     Width="100"
                     ToolTip="Resource name: MaterialDesignRaisedAccentButton">
-              Update
-            </Button>
-          </StackPanel>
+            Update
+          </Button>
+        </StackPanel>
+
+      </TabItem>
+      <TabItem Header="Assign Course">
+        <StackPanel>
+          <ComboBox x:Name="AssignTrainerCombo" Margin="10 40 40 0"
+                    materialDesign:HintAssist.Hint="Select Trainer">
+          </ComboBox>
+
+          <ComboBox Margin="10 40 40 0" x:Name="AssignCourseCombo"
+                    materialDesign:HintAssist.Hint="Select Course">
+          </ComboBox>
+          <Button Margin="0 80 0 0"
+                  Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                  Width="100" Click="Assignment_CourseToTrainer"
+                  ToolTip="Resource name: MaterialDesignRaisedAccentButton">
+            Assign
+          </Button>
+        </StackPanel>
 
       </TabItem>
 
+
     </TabControl>
-    <DataGrid x:Name="ListTrainers" HorizontalAlignment="Left" Height="243" Margin="476,0,-384,0" VerticalAlignment="Top" Width="708" RenderTransformOrigin="-0.366,-0.368"/>
+    <DataGrid SelectionChanged="listCoursesOnSelection" x:Name="ListCourses" CanUserAddRows="False" AlternatingRowBackground="Aqua" CanUserDeleteRows="False" CanUserSortColumns="False" HorizontalAlignment="Left" Height="231" Margin="10,343,-187,-124.4" VerticalAlignment="Top" Width="977" RenderTransformOrigin="-0.366,-0.368"/>
+    <Button Margin="603,145,97,274.6"
+            Style="{StaticResource MaterialDesignRaisedAccentButton}"
+            Width="100" 
+            ToolTip="Resource name: MaterialDesignRaisedAccentButton" Content="Refresh" Click="Refresh" Height="30"/>
   </Grid>
 </Page>

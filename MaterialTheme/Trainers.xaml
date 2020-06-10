@@ -18,31 +18,31 @@
             <ColumnDefinition Width="*"/>
           </Grid.ColumnDefinitions>
           <StackPanel Grid.Column="0">
-            <TextBox Margin="20 0 50 0"
+            <TextBox x:Name="FirstNameTextBox" Margin="20 0 50 0"
               materialDesign:HintAssist.Hint="First Name"
               Style="{StaticResource MaterialDesignFloatingHintTextBox}"
               VerticalAlignment="Center" />
-            <TextBox Margin="20 0 50 0"
-              materialDesign:HintAssist.Hint="Last Name"
-              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-              VerticalAlignment="Center" />
-            <TextBox Margin="20 0 50 0"
+            <TextBox x:Name="LastNameTextBox" Margin="20 0 50 0"
+                     materialDesign:HintAssist.Hint="Last Name"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center" />
+            <TextBox x:Name="DesignationTextBox" Margin="20 0 50 0"
                      materialDesign:HintAssist.Hint="Designation"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      VerticalAlignment="Center" />
-            <TextBox Margin="20 0 50 0"
+            <TextBox x:Name="DepartmentTextBox" Margin="20 0 50 0"
                      materialDesign:HintAssist.Hint="Department"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      VerticalAlignment="Center" />
-            <TextBox Margin="20 0 50 0"
+            <TextBox x:Name="SalaryTextBox" Margin="20 0 50 0"
                      materialDesign:HintAssist.Hint="Salary"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      VerticalAlignment="Center" />
-            <TextBox Margin="20 0 50 0"
+            <TextBox x:Name="EmailTextBox" Margin="20 0 50 0"
                      materialDesign:HintAssist.Hint="Email"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      VerticalAlignment="Center" />
-            <TextBox Margin="20 0 50 0"
+            <TextBox x:Name="AddressTextBox" Margin="20 0 50 0"
                      materialDesign:HintAssist.Hint="Address"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      VerticalAlignment="Center" />
@@ -55,11 +55,11 @@
               Style="{StaticResource MaterialDesignRaisedAccentButton}"
               Width="100"
               ToolTip="Resource name: MaterialDesignRaisedAccentButton" Content="Browse" Click="BrowseBtnClicked "/>
-            <DatePicker Margin="0 30 0 0"
+            <DatePicker x:Name="DateOfBirthPicker" Margin="0 30 0 0"
               Width="140"
-              materialDesign:HintAssist.Hint="Pick Date"
+              materialDesign:HintAssist.Hint="Date Of Birth"
               Style="{StaticResource MaterialDesignFilledDatePicker}" />
-            <Button Margin="0 20 0 0"
+            <Button Click="BtnAdd_OnClick" Margin="0 20 0 0"
               Style="{StaticResource MaterialDesignRaisedAccentButton}"
               Width="100"
               ToolTip="Resource name: MaterialDesignRaisedAccentButton">
@@ -69,68 +69,14 @@
         </Grid>
 
       </TabItem>
-      <TabItem Header="Assign Course">
-        <StackPanel>
-          <ComboBox Margin="10 40 40 0"
-            materialDesign:HintAssist.Hint="Select Trainer">
-            <ComboBoxItem>
-              Android
-            </ComboBoxItem>
-            <ComboBoxItem>
-              iOS
-            </ComboBoxItem>
-            <ComboBoxItem>
-              Linux
-            </ComboBoxItem>
-            <ComboBoxItem>
-              Windows
-            </ComboBoxItem>
-          </ComboBox>
-
-          <ComboBox Margin="10 40 40 0"
-                    materialDesign:HintAssist.Hint="Select Course">
-            <ComboBoxItem>
-              Android
-            </ComboBoxItem>
-            <ComboBoxItem>
-              iOS
-            </ComboBoxItem>
-            <ComboBoxItem>
-              Linux
-            </ComboBoxItem>
-            <ComboBoxItem>
-              Windows
-            </ComboBoxItem>
-          </ComboBox>
-          <Button Margin="0 80 0 0"
-            Style="{StaticResource MaterialDesignRaisedAccentButton}"
-            Width="100"
-            ToolTip="Resource name: MaterialDesignRaisedAccentButton">
-            Assign
-          </Button>
-        </StackPanel>
-
-      </TabItem>
-    </TabControl>
+          </TabControl>
     <TabControl Margin="550,10,0,318.6" HorizontalAlignment="Left" Width="393">
       <TabItem Header="Delete Trainer">
         <StackPanel>
-          <ComboBox Margin="10 40 40 0"
+          <ComboBox Margin="10 40 40 0" x:Name="DeleteTrainerCombo"
                     materialDesign:HintAssist.Hint="Select a record to delete">
-            <ComboBoxItem>
-              Android
-            </ComboBoxItem>
-            <ComboBoxItem>
-              iOS
-            </ComboBoxItem>
-            <ComboBoxItem>
-              Linux
-            </ComboBoxItem>
-            <ComboBoxItem>
-              Windows
-            </ComboBoxItem>
           </ComboBox>
-          <Button Margin="0 80 0 0"
+          <Button Click="DeleteBtn_OnClick" Margin="0 80 0 0"
                   Style="{StaticResource MaterialDesignRaisedAccentButton}"
                   Width="100"
                   ToolTip="Resource name: MaterialDesignRaisedAccentButton">
@@ -147,27 +93,31 @@
             <ColumnDefinition Width="*"/>
           </Grid.ColumnDefinitions>
           <StackPanel Grid.Column="0">
-            <TextBox Margin="20 0 50 0"
+            <TextBox x:Name="UpFirstName" Margin="20 0 50 0"
               materialDesign:HintAssist.Hint="First Name"
               Style="{StaticResource MaterialDesignFloatingHintTextBox}"
               VerticalAlignment="Center" />
-            <TextBox Margin="20 0 50 0"
-              materialDesign:HintAssist.Hint="Last Name"
-              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-              VerticalAlignment="Center" />
-            <TextBox Margin="20 0 50 0"
-                     materialDesign:HintAssist.Hint="Registration Number"
+            <TextBox x:Name="UpLastName" Margin="20 0 50 0"
+                     materialDesign:HintAssist.Hint="Last Name"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      VerticalAlignment="Center" />
-            <TextBox Margin="20 0 50 0"
-                     materialDesign:HintAssist.Hint="Phone Number"
+            <TextBox x:Name="UpDesignation" Margin="20 0 50 0"
+                     materialDesign:HintAssist.Hint="Designation"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      VerticalAlignment="Center" />
-            <TextBox Margin="20 0 50 0"
+            <TextBox x:Name="UpSalary" Margin="20 0 50 0"
+                     materialDesign:HintAssist.Hint="Salary"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center" />
+            <TextBox x:Name="UpDepartment" Margin="20 0 50 0"
+                     materialDesign:HintAssist.Hint="Department"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center" />
+            <TextBox x:Name="UpEmail" Margin="20 0 50 0"
                      materialDesign:HintAssist.Hint="Email"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      VerticalAlignment="Center" />
-            <TextBox Margin="20 0 50 0"
+            <TextBox x:Name="UpAddress" Margin="20 0 50 0"
                      materialDesign:HintAssist.Hint="Address"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      VerticalAlignment="Center" />
@@ -179,23 +129,25 @@
             <Button
               Style="{StaticResource MaterialDesignRaisedAccentButton}"
               Width="100"
-              ToolTip="Resource name: MaterialDesignRaisedAccentButton" Content="Browse" Click="BrowseBtnClicked "/>
-            <DatePicker Margin="0 30 0 0"
-              Width="140"
-              materialDesign:HintAssist.Hint="Pick Date"
-              Style="{StaticResource MaterialDesignFilledDatePicker}" />
-            <Button Margin="0 20 0 0"
-              Style="{StaticResource MaterialDesignRaisedAccentButton}"
-              Width="100"
-              ToolTip="Resource name: MaterialDesignRaisedAccentButton">
-              Update
-            </Button>
+              ToolTip="Resource name: MaterialDesignRaisedAccentButton" Content="Browse" Click="UpBrowseBtnClicked "/>
+            <DatePicker x:Name="UpDateOfBirth" Margin="0 30 0 0"
+                        Width="140"
+                        materialDesign:HintAssist.Hint="Date Of Birth"
+                        Style="{StaticResource MaterialDesignFilledDatePicker}" />
+            <Button x:Name="Update" Margin="0 10 0 0"
+                    Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                    Width="100"
+                    ToolTip="Resource name: MaterialDesignRaisedAccentButton" Content="Update" Click="Update_OnClick"/>
           </StackPanel>
         </Grid>
 
       </TabItem>
 
     </TabControl>
-    <DataGrid x:Name="ListTrainers" HorizontalAlignment="Left" Height="243" Margin="28,368,0,-161.4" VerticalAlignment="Top" Width="762" RenderTransformOrigin="-0.366,-0.368"/>
+    <DataGrid SelectionChanged="ListTrainers_OnSelectionChanged" x:Name="ListTrainers" CanUserAddRows="False" AlternatingRowBackground="Aqua" CanUserDeleteRows="False" CanUserSortColumns="False" HorizontalAlignment="Left" Height="211" Margin="28,400,-205,-161.4" VerticalAlignment="Top" Width="977" RenderTransformOrigin="-0.366,-0.368"/>
+    <Button Margin="636,265,64,160.6"
+            Style="{StaticResource MaterialDesignRaisedAccentButton}"
+            Width="100" 
+            ToolTip="Resource name: MaterialDesignRaisedAccentButton" Content="Refresh" Click="Refresh" Height="30"/>
   </Grid>
 </Page>

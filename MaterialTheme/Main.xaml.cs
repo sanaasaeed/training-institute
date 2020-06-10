@@ -1,17 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MaterialTheme {
   /// <summary>
@@ -46,7 +36,7 @@ namespace MaterialTheme {
       UnassignedCourse.ItemsSource = unassigned;
       this.DataContext = this;
 
-
+      List<String> studentNames = new List<string>();
       // STUDENTS TAKING NO COURSES
       var result = (from student in context.Students
         where
@@ -56,15 +46,13 @@ namespace MaterialTheme {
                 studentcourse.StudentId
               }).Contains(new {StudentId = student.StudentId})
         select new {
-          student.StudentId
-        }).ToList();
-
-      MessageBox.Show(result.Count().ToString());
-      StudentCombo.ItemsSource = result;
+          student.FirstName
+        });
+      foreach (var query in result) {
+        studentNames.Add(query.FirstName);
+      }
+      StudentCombo.ItemsSource = studentNames;
     }
-
-
-
 
 
     private void OnUnassignedSelectionChange(object sender, SelectionChangedEventArgs e) {
@@ -78,16 +66,22 @@ namespace MaterialTheme {
     }
 
     private void StudentCombo_OnSelectionChanged(object sender, SelectionChangedEventArgs e) {
-      // Updating Data Grid 
-      // var context = new TrainingDBContext();
-      // var selectedCourse = StudentCombo.SelectedValue.ToString();
-      // var selectedQuery = context.Courses.Where(cour => cour.Title == selectedCourse).Select(cour => new {
-      //   cour.Code,
-      //   cour.Title,
-      //   cour.Description,
-      //   cour.TrainerId
-      // }).ToList();
-      // DataGridMain.ItemsSource = selectedQuery;
+      var db = new TrainingDBContext();
+      var selectedStudent = StudentCombo.SelectedValue.ToString();
+      var selectedQuery = (from std in db.Students
+        where
+          std.FirstName == selectedStudent
+        select new StudentRecords() {
+          FirstName = std.FirstName,
+          LastName = std.LastName,
+          RegNo = std.RegNo,
+          PhoneNo = std.PhoneNo,
+          Email = std.Email,
+          Address = std.Address,
+          DateOfBirth = std.DateOfBirth,
+          PhotoSrc = std.PhotoSrc
+        }).ToList();
+      DataGridMain.ItemsSource = selectedQuery;
     }
   }
 }

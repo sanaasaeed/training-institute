@@ -40,7 +40,7 @@
           <Key>
             <PropertyRef Name="TrainerId" />
           </Key>
-          <Property Name="TrainerId" Type="int" Nullable="false" />
+          <Property Name="TrainerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="nchar" MaxLength="50" />
           <Property Name="Designation" Type="nchar" MaxLength="50" />
@@ -48,8 +48,8 @@
           <Property Name="Salary" Type="nchar" MaxLength="50" />
           <Property Name="Email" Type="nchar" MaxLength="50" />
           <Property Name="Address" Type="nchar" MaxLength="50" />
-          <Property Name="DateOfBirth" Type="nchar" MaxLength="10" />
-          <Property Name="PhotoSrc" Type="nchar" MaxLength="50" />
+          <Property Name="DateOfBirth" Type="nchar" MaxLength="50" />
+          <Property Name="PhotoSrc" Type="nchar" MaxLength="600" />
         </EntityType>
         <Association Name="FK_Courses_Trainers">
           <End Role="Trainers" Type="Self.Trainers" Multiplicity="0..1" />
@@ -157,8 +157,8 @@
           <Property Name="Salary" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="DateOfBirth" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="PhotoSrc" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="DateOfBirth" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="PhotoSrc" Type="String" MaxLength="600" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Courses" Relationship="Self.FK_Courses_Trainers" FromRole="Trainers" ToRole="Courses" />
         </EntityType>
         <Association Name="FK_Courses_Trainers">
